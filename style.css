@@ -551,8 +551,14 @@ section h4 {
 
 .wall-art-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
     gap: 2rem;
+}
+
+.wall-art-options .art-tier:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 560px);
 }
 
 .art-tier {
@@ -951,6 +957,16 @@ footer {
     .services-grid,
     .portfolio-grid {
         grid-template-columns: 1fr;
+    }
+
+    .wall-art-options {
+        grid-template-columns: 1fr;
+    }
+
+    .wall-art-options .art-tier:last-child {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
     }
 
     .wall-art-section,
