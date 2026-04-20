@@ -841,11 +841,15 @@ section h4 {
 .contact-content {
     display: flex;
     gap: 3rem;
+    justify-content: center;
     align-items: start;
+    max-width: 1120px;
+    margin: 0 auto;
 }
 
 .contact-info {
-    flex: 1;
+    flex: 0 0 340px;
+    max-width: 340px;
 }
 
 .contact-info p {
@@ -862,7 +866,8 @@ section h4 {
 }
 
 .contact-form-embed {
-    flex: 1;
+    flex: 0 1 720px;
+    max-width: 720px;
     width: 100%;
 }
 
@@ -961,6 +966,16 @@ footer {
     .about-content,
     .contact-content {
         flex-direction: column;
+    }
+
+    .contact-content {
+        max-width: 100%;
+    }
+
+    .contact-info,
+    .contact-form-embed {
+        flex: 1 1 auto;
+        max-width: 100%;
     }
 
     .hero-content h1 {
