@@ -71,7 +71,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 0.75rem;
     min-height: 100vh;
     background: linear-gradient(135deg, #000000 0%, #FFD700 100%);
     color: white;
@@ -81,8 +81,9 @@ nav ul li a:hover {
 }
 
 .hero-content {
-    flex: 0 1 540px;
-    padding: 2rem;
+    flex: 0 1 500px;
+    padding: 1rem 0.5rem 1rem 1rem;
+    text-align: left;
 }
 
 .hero-content h1 {
@@ -107,8 +108,8 @@ nav ul li a:hover {
 .hero-image {
     flex: 0 1 520px;
     max-width: 520px;
-    padding: 2rem;
-    margin: 0 auto;
+    padding: 1rem 1rem 1rem 0.5rem;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -925,6 +926,7 @@ footer {
         max-width: 560px;
         margin: 0 auto;
         padding: 1rem;
+        text-align: center;
     }
 
     .hero-image img {
