@@ -24,16 +24,6 @@ if (contactForm) {
 
 // Simple image gallery hover effect (already in CSS, but can add more JS if needed)
 
-// Add scroll effect to header
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.backgroundColor = '#000000';
-    } else {
-        header.style.backgroundColor = '#000000';
-    }
-});
-
 // Portfolio carousel functionality
 const track = document.querySelector('.carousel-track');
 const slides = track ? Array.from(track.children) : [];
