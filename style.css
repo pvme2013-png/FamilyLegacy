@@ -861,6 +861,17 @@ section h4 {
     gap: 1rem;
 }
 
+.contact-form-embed {
+    flex: 1;
+    width: 100%;
+}
+
+.contact-form-embed iframe {
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 8px;
+    background-color: #111111;
+}
+
 .contact-form input,
 .contact-form textarea {
     padding: 0.75rem;
