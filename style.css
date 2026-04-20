@@ -555,12 +555,6 @@ section h4 {
     gap: 2rem;
 }
 
-.wall-art-options .art-tier:last-child {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: min(100%, 560px);
-}
-
 .art-tier {
     background: linear-gradient(180deg, rgba(255,215,0,0.08), rgba(255,255,255,0.01));
     border: 1px solid rgba(255,215,0,0.15);
