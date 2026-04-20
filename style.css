@@ -1029,7 +1029,7 @@ footer {
     .hero-image img {
         width: 100%;
         max-width: 420px;
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 5 / 6;
         height: auto;
         object-fit: cover;
         object-position: center 45%;
@@ -1040,7 +1040,7 @@ footer {
         width: 100%;
         max-width: 520px;
         margin: 0 auto;
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 5 / 6;
         object-fit: cover;
     }
 
@@ -1092,7 +1092,7 @@ footer {
     .carousel-img {
         width: 100%;
         height: auto;
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 5 / 6;
         min-height: 340px;
         max-height: 520px;
         object-position: center 22%;
