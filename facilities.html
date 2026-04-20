@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Vision Multimedia - Long-Term Care Partnership Program</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Facilities Page Specific Styles */
+        .facilities-hero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding-top: 100px;
+        }
+
+        .facilities-hero .hero-content {
+            flex: 1;
+            padding: 3rem 2rem;
+        }
+
+        .facilities-hero h1 {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .facilities-hero .subtitle {
+            font-size: 1.5rem;
+            color: #E6D08A;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .facilities-hero .description {
+            font-size: 1.1rem;
+            color: #FFFFFF;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-consultation {
+            background: #FFD700;
+            color: #000000;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-consultation:hover {
+            background: #FFFFFF;
+        }
+
+        /* Facilities Content Sections */
+        .b2b-section {
+            margin: 6rem auto;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .b2b-section h2 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            letter-spacing: 0.5px;
+        }
+
+        .b2b-section h3 {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.3px;
+        }
+
+        .b2b-section p {
+            color: #FFFFFF;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .benefit-list li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            color: #E6D08A;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .benefit-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .program-overview {
+            background: linear-gradient(180deg, rgba(255,215,0,0.06), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,215,0,0.12);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .program-overview h3 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+        }
+
+        .what-receives {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .receive-card {
+            background: rgba(255,215,0,0.04);
+            border: 1px solid rgba(255,215,0,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .receive-card h4 {
+            font-size: 1.3rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .receive-card p {
+            color: #E6D08A;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .impact-section {
+            background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,215,0,0.02));
+            border: 1px solid rgba(255,215,0,0.15);
+            border-radius: 16px;
+            padding: 3.5rem;
+            margin: 4rem 0;
+        }
+
+        .impact-section h3 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-section p {
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-highlight {
+            font-size: 1.15rem;
+            color: #FFD700;
+            font-weight: 500;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .pricing-section {
+            background: linear-gradient(180deg, rgba(255,215,0,0.12), rgba(255,215,0,0.05));
+            border: 2px solid rgba(255,215,0,0.25);
+            border-radius: 16px;
+            padding: 4rem;
+            margin: 4rem 0;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-section h3 {
+            color: #FFD700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            color: #E6D08A;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-details {
+            background: rgba(0,0,0,0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .pricing-details li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            color: #E6D08A;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .pricing-details li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .value-statement {
+            color: #E6D08A;
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .why-choose {
+            background: linear-gradient(180deg, rgba(255,215,0,0.04), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,215,0,0.1);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .why-choose h3 {
+            color: #FFD700;
+            margin-bottom: 2rem;
+        }
+
+        .company-section {
+            background: rgba(255,215,0,0.03);
+            border: 1px solid rgba(255,215,0,0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 4rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .company-section h3 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+        }
+
+        .company-section p {
+            color: #E6D08A;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta-section {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            border: 1px solid rgba(255,215,0,0.18);
+            border-radius: 18px;
+            padding: 4rem 3rem;
+            margin: 5rem auto;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .final-cta-section h2 {
+            font-size: 2.2rem;
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .final-cta-section p {
+            color: #E6D08A;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .facilities-hero h1 {
+                font-size: 2rem;
+            }
+
+            .facilities-hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .b2b-section {
+                margin: 4rem auto;
+            }
+
+            .b2b-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="031824-Logo.png" alt="Pro Vision Multimedia Enterprises Logo" class="logo-img">
+            </div>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="facilities.html">Facilities Partnership</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero facilities-hero">
+        <div class="hero-content">
+            <h1>Elevating Resident Experience Through Timeless Portraiture</h1>
+            <p class="subtitle">A Monthly Legacy Portrait Program Designed for Your Residents and Their Families</p>
+            <p class="description">Provide meaningful experiences that enhance resident dignity, strengthen family connections, and create a warm, welcoming environment throughout your facility.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn-consultation">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="b2b-section">
+        <h2>A Partnership That Brings Value to Your Community</h2>
+        <p>The Long-Term Care Facility Partnership Program is a recurring monthly service designed specifically for nursing homes, assisted living communities, and memory care facilities. This is not a one-time event—it's a sustained program that brings professional portraiture, resident dignity, and family connection to your community each month.</p>
+        
+        <div class="program-overview">
+            <h3>How the Program Works</h3>
+            <ul class="benefit-list">
+                <li>3 residents photographed each month</li>
+                <li>Professional, guided portrait sessions in a calm, respectful environment</li>
+                <li>Minimal disruption to facility operations and resident schedules</li>
+                <li>Consistent, predictable monthly scheduling</li>
+                <li>Professional editing and delivery of final portraits</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="b2b-section">
+        <h2>What Your Facility Receives Each Month</h2>
+        <p>Every month, your facility receives professional portraits that enhance both resident experience and facility aesthetics.</p>
+        
+        <div class="what-receives">
+            <div class="receive-card">
+                <h4>3 Residents Photographed</h4>
+                <p>Professional sessions capturing dignity, personality, and connection</p>
+            </div>
+            <div class="receive-card">
+                <h4>6 Framed 8x10 Portraits</h4>
+                <p>2 per resident: one for family, one for facility display</p>
+            </div>
+            <div class="receive-card">
+                <h4>Professional Quality</h4>
+                <p>Expertly edited, high-resolution images that last</p>
+            </div>
+            <div class="receive-card">
+                <h4>Growing Legacy</h4>
+                <p>A visual legacy that builds throughout your facility over time</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="b2b-section">
+        <div class="impact-section">
+            <h3>Environmental & Emotional Impact</h3>
+            <p>Framed resident portraits do more than decorate walls. They transform your physical environment and strengthen emotional connections:</p>
+            <ul class="benefit-list">
+                <li>Create a warm, welcoming atmosphere throughout your facility</li>
+                <li>Celebrate resident identity and dignity</li>
+                <li>Provide visual storytelling in hallways and common areas</li>
+                <li>Strengthen emotional connection for visiting families</li>
+                <li>Enhance community perception and facility reputation</li>
+            </ul>
+            <p class="impact-highlight">Not just photography—but environmental and emotional transformation.</p>
+        </div>
+    </div>
+
+    <div class="b2b-section">
+        <h2>Strengthening Family Connections</h2>
+        <p>When families visit, they see their loved one beautifully portrayed in your facility—and they have the opportunity to create their own family keepsake. The photographer connects with family members when appropriate, offering them the option to purchase additional wall art, professional albums, or portraits for their own homes.</p>
+        <p><strong>Important:</strong> Family purchases are completely optional and separate from your facility contract. Your monthly agreement includes only the framed portraits for facility display and resident/family copies.</p>
+    </div>
+
+    <div class="b2b-section">
+        <div class="pricing-section">
+            <h3>Simple, Predictable Partnership</h3>
+            <p class="price-amount">$750</p>
+            <p class="price-period">per month | 12-month contract</p>
+            <div class="pricing-details">
+                <ul>
+                    <li>3 residents photographed each month</li>
+                    <li>6 framed 8x10 portraits (3 residents × 2 prints)</li>
+                    <li>36 residents documented annually</li>
+                    <li>Monthly scheduling and service delivery</li>
+                </ul>
+            </div>
+            <p class="value-statement">A cost-effective way to enhance resident experience, strengthen family bonds, and elevate your facility's community presence.</p>
+        </div>
+    </div>
+
+    <div class="b2b-section">
+        <div class="why-choose">
+            <h3>Why Facilities Choose This Program</h3>
+            <ul class="benefit-list">
+                <li>Enhances resident morale, dignity, and sense of identity</li>
+                <li>Creates meaningful experiences that families treasure</li>
+                <li>Provides visual storytelling throughout your community spaces</li>
+                <li>Differentiates your facility from competitors</li>
+                <li>Strengthens community perception and facility branding</li>
+                <li>No operational burden on your staff</li>
+                <li>Professional, reliable, consistent service</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="b2b-section">
+        <div class="company-section">
+            <h3>About Pro Vision Multimedia Enterprises</h3>
+            <p>A professional, veteran-owned photography company specializing in capturing meaningful human connections and creating timeless imagery.</p>
+            <p>We bring expertise in photographing individuals in sensitive environments with professionalism, dignity, and respect. Your facility and residents are in experienced hands.</p>
+        </div>
+    </div>
+
+    <section class="final-cta-section">
+        <h2>Bring This Experience to Your Residents</h2>
+        <p>Enhance your community's environment, strengthen resident dignity, and create meaningful moments for the families you serve. Let's talk about how this partnership can elevate your facility.</p>
+        <a href="#contact" class="btn-consultation">Schedule Your Consultation</a>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Pro Vision Multimedia</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><strong>Email:</strong> info@provisonmultimedia.com</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Location:</strong> New York, NY</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Facility Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Your Title" required>
+                    <textarea placeholder="Tell us about your facility and interest in the partnership program" required></textarea>
+                    <button type="submit" class="btn">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Pro Vision Multimedia Enterprises. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
