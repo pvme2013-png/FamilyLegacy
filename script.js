@@ -12,12 +12,15 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handler
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
-    this.reset();
-});
+// Form submission handler (kept optional because the contact section may use an embedded form)
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! I will get back to you soon.');
+        this.reset();
+    });
+}
 
 // Simple image gallery hover effect (already in CSS, but can add more JS if needed)
 
@@ -33,7 +36,7 @@ window.addEventListener('scroll', function() {
 
 // Portfolio carousel functionality
 const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
+const slides = track ? Array.from(track.children) : [];
 const nextButton = document.querySelector('.carousel-btn.next');
 const prevButton = document.querySelector('.carousel-btn.prev');
 const thumbnails = Array.from(document.querySelectorAll('.thumbnail'));
@@ -55,39 +58,54 @@ const setSlidePositions = slides => {
     });
 };
 
-setSlidePositions(slides);
+if (track && slides.length && nextButton && prevButton && thumbnails.length) {
+    const positionSlides = () => setSlidePositions(slides);
 
-nextButton.addEventListener('click', e => {
-    const currentSlide = track.querySelector('.current-slide');
-    const nextSlide = currentSlide.nextElementSibling || slides[0];
-    const currentThumbnail = document.querySelector('.current-thumbnail');
-    const nextThumbnail = thumbnails[slides.indexOf(nextSlide)];
+    positionSlides();
+    window.addEventListener('resize', positionSlides);
 
-    moveToSlide(track, currentSlide, nextSlide);
-    updateThumbnails(currentThumbnail, nextThumbnail);
-});
-
-prevButton.addEventListener('click', e => {
-    const currentSlide = track.querySelector('.current-slide');
-    const prevSlide = currentSlide.previousElementSibling || slides[slides.length - 1];
-    const currentThumbnail = document.querySelector('.current-thumbnail');
-    const prevThumbnail = thumbnails[slides.indexOf(prevSlide)];
-
-    moveToSlide(track, currentSlide, prevSlide);
-    updateThumbnails(currentThumbnail, prevThumbnail);
-});
-
-thumbnails.forEach(thumbnail => {
-    thumbnail.addEventListener('click', e => {
+    nextButton.addEventListener('click', () => {
         const currentSlide = track.querySelector('.current-slide');
+        const nextSlide = currentSlide.nextElementSibling || slides[0];
         const currentThumbnail = document.querySelector('.current-thumbnail');
-        const targetIndex = parseInt(thumbnail.dataset.index, 10);
-        const targetSlide = slides[targetIndex];
+        const nextThumbnail = thumbnails[slides.indexOf(nextSlide)];
 
-        moveToSlide(track, currentSlide, targetSlide);
-        updateThumbnails(currentThumbnail, thumbnail);
+        moveToSlide(track, currentSlide, nextSlide);
+        if (currentThumbnail && nextThumbnail) {
+            updateThumbnails(currentThumbnail, nextThumbnail);
+        }
     });
-});
+
+    prevButton.addEventListener('click', () => {
+        const currentSlide = track.querySelector('.current-slide');
+        const prevSlide = currentSlide.previousElementSibling || slides[slides.length - 1];
+        const currentThumbnail = document.querySelector('.current-thumbnail');
+        const prevThumbnail = thumbnails[slides.indexOf(prevSlide)];
+
+        moveToSlide(track, currentSlide, prevSlide);
+        if (currentThumbnail && prevThumbnail) {
+            updateThumbnails(currentThumbnail, prevThumbnail);
+        }
+    });
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            const currentSlide = track.querySelector('.current-slide');
+            const currentThumbnail = document.querySelector('.current-thumbnail');
+            const targetIndex = parseInt(thumbnail.dataset.index, 10);
+            const targetSlide = slides[targetIndex];
+
+            if (!targetSlide) {
+                return;
+            }
+
+            moveToSlide(track, currentSlide, targetSlide);
+            if (currentThumbnail) {
+                updateThumbnails(currentThumbnail, thumbnail);
+            }
+        });
+    });
+}
 
 // Modal on slide click
 const carouselImages = document.querySelectorAll('.carousel-img');
