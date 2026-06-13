@@ -145,9 +145,9 @@ nav ul li a:hover {
 
 /* Sections */
 section {
-    padding: 5rem 0;
+    padding: 1.5rem 0 5rem 0;
     background-color: #000000;
-    scroll-margin-top: 90px;
+    scroll-margin-top: 80px;
 }
 
 section h2 {
